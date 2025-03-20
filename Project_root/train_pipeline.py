@@ -8,7 +8,7 @@ from training.train import (
     define_loss_function,
     train_one_epoch,
 )
-from transform_pipeline import transform_pipeline
+import transform_pipeline
 from Models.model import Seq2SeqModel
 
 # Device Configuration
@@ -52,9 +52,12 @@ def train_pipeline(num_epochs=10, batch_size=16, learning_rate=0.001):
         train_loss = train_one_epoch(model, train_dataloader, optimizer, criterion, device)
         print(f"📈 Epoch [{epoch+1}/{num_epochs}] - Loss: {train_loss:.4f}")
  
+    print("🔥 Training Completed!")
     print("💾 Saving Trained Model...")
     torch.save(model.state_dict(), MODEL_SAVE_PATH)
     print(f"✅ Model Saved at: {MODEL_SAVE_PATH}")
 
 if __name__ == "__main__":
+    print("🔥 Running Training Pipeline...")
     train_pipeline()
+    print("✅ Training Completed!")
