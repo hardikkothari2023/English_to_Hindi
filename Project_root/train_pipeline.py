@@ -8,7 +8,8 @@ from training.train import (
     define_loss_function,
     train_one_epoch,
 )
-import transform_pipeline
+from transform_pipeline import transform_pipeline
+
 from Models.model import Seq2SeqModel
 
 # Device Configuration
